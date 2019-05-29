@@ -1,0 +1,26 @@
+{
+  "name": "mui-react-barebones",
+  "version": "1.0.0",
+  "description": "Material-UI ReactJS barebones project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kPatch/mui-react-barebones.git"
+  },
+  "keywords": [
+    "materia-ui",
+    "reactjs"
+  ],
+  "author": "@kPatch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kPatch/mui-react-barebones/issues"
+  },
+  "homepage": "https://github.com/kPatch/mui-react-barebones#readme",
+  "dependencies": {
+    "@material-ui/core": "^4.0.0-rc.0"
+  }
+}
