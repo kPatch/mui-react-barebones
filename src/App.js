@@ -14,25 +14,10 @@ class App extends Component {
   
   state = {
     open: true,
-    appBarTitle: ''
+    appBarTitle: 'Netus Crunchy App'
   }
-
-  handleDrawerOpen = () => {
-    console.log("HANDLE_DRAWER_OPEN")
-    this.setState({ open: true })
-  };
-
-  handleDrawerClose = () => {
-    console.log("HANDLE_DRAWER_CLOSE")
-    this.setState({ open: false })
-  };
 
   setAppBarTitle = (appBarTitle) => {
-    this.setState({ appBarTitle: appBarTitle })
-  }
-
-  handleListItemClick = (appBarTitle) => {
-    console.log('HANDLE_LIST_ITEM_CLICK' + appBarTitle)
     this.setState({ appBarTitle: appBarTitle })
   }
 
@@ -44,10 +29,10 @@ class App extends Component {
     const { classes } = this.props
     return (
       <div className={ classes.root }>
+        <CssBaseline />
         <CrunchyAppBar
           open={ this.state.open }
           appBarTitle={ this.state.appBarTitle }
-          handleDrawerOpen={ this.handleDrawerOpen }
           handleAppBarIconClick={ this.handleAppBarIconClick }
         />
       </div>

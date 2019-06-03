@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import InputBase from '@material-ui/core/InputBase'
 import IconButton from '@material-ui/core/IconButton'
 import SearchIcon from '@material-ui/icons/Search'
-import MenuIcon from '@material-ui/icons/Menu'
 import MailIcon from '@material-ui/icons/Mail'
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import { fade } from '@material-ui/core/styles/colorManipulator'
@@ -15,11 +13,9 @@ import Badge from '@material-ui/core/Badge'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 
-const drawerWidth = 240
-
 const styles = theme => ({
   toolbar: {
-    paddingRight: 24 // keep right padding when drawer closed
+    paddingRight: 24
   },
   toolbarIcon: {
     display: 'flex',
@@ -36,23 +32,12 @@ const styles = theme => ({
       duration: theme.transitions.duration.leavingScreen
     })
   },
-  appBarShift: {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  },
   menuButton: {
     marginLeft: 12,
     marginRight: 36,
   },
   menuButtonHidden: {
     display: 'none'
-  },
-  title: {
-    flexGrow: 1
   },
   grow: {
     flexGrow: 1,
@@ -83,17 +68,13 @@ const styles = theme => ({
   },
   inputRoot: {
     color: 'inherit',
-    width: '100%',
   },
   inputInput: {
-    paddingTop: theme.spacing.unit,
-    paddingRight: theme.spacing.unit,
-    paddingBottom: theme.spacing.unit,
-    paddingLeft: theme.spacing.unit * 10,
+    padding: theme.spacing(1, 1, 1, 7),
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      width: 400,
+      width: 200,
     },
   },
   sectionDesktop: {
@@ -111,73 +92,42 @@ class CrunchyAppBar extends Component {
     return(
       <AppBar
         position="absolute"
-        className={ 
-          classNames(classes.appBar, this.props.open && classes.appBarShift) 
-        }
-      >
-        <Toolbar 
-          disableGutters={ !this.props.open } 
-          className={ classes.toolbar }>
-          <IconButton
-            color="inherit"
-            aria-label="Open drawer"
-            onClick={ this.props.handleDrawerOpen }
-            className={ classNames(
-              classes.menuButton,
-              this.props.open && classes.menuButtonHidden,
-            ) }
-          >
-            <MenuIcon />
-          </IconButton>
-          {/* <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap
-            className={ classes.title }
-          >
+        className={ classes.appBar } >
+        <Toolbar disableGutters={ !this.props.open } className={ classes.toolbar }>
+          <Typography component="h1" variant="h6" color="inherit" noWrap className={ classes.title }>
             { this.props.appBarTitle }
-          </Typography> */}
-
+          </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
-              <SearchIcon />
+              <SearchIcon/>
             </div>
             <InputBase
               placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-            />
+              classes={{ root: classes.inputRoot, input: classes.inputInput }}/>
           </div>
-
-          <div className={classes.grow} />
-
-          <div className={classes.sectionDesktop}>
+          <div className={ classes.grow }/>
+          <div className={ classes.sectionDesktop }>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
-                <MailIcon />
+                <MailIcon/>
               </Badge>
             </IconButton>
             <IconButton color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
+              <Badge badgeContent={5} color="secondary">
+                <NotificationsIcon/>
               </Badge>
             </IconButton>
             <IconButton
               aria-owns={'material-appbar'}
               aria-haspopup="true"
               onClick={this.handleProfileMenuOpen}
-              color="inherit"
-            >
+              color="inherit">
               <AccountCircle />
             </IconButton>
           </div>
-
           <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
+            <Badge badgeContent={95} color="secondary">
+              <NotificationsIcon/>
             </Badge>
           </IconButton>
         </Toolbar>
@@ -188,8 +138,7 @@ class CrunchyAppBar extends Component {
 
 CrunchyAppBar.propTypes = {
   classes:          PropTypes.object.isRequired,
-  open:             PropTypes.bool.isRequired,
-  handleDrawerOpen: PropTypes.func.isRequired
+  open:             PropTypes.bool.isRequired
 }
 
 export default withStyles(styles)(CrunchyAppBar)
